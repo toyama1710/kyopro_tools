@@ -1,10 +1,12 @@
 set number
 
+set virtualedit=onemore
 set showmatch
 set smartindent
 set cindent
 set tabstop=4
 set shiftwidth=4
+set expandtab
 syntax enable
 
 set noswapfile
@@ -18,4 +20,10 @@ let &t_SI.="\e[6 q"
 let &t_EI.="\e[6 q"
 let &t_te.="\e[6 q"
 
-autocmd BufNewFile *.cpp 0r /contest/cpp_library/template/auto_insert.cpp
+autocmd BufNewFile *.cpp 0r $KYOPROHOME/kyopro_environment/cpp/template.cpp
+
+" keymapping
+nnoremap j gj
+xnoremap j gj
+nnoremap k gk
+xnoremap k gk
