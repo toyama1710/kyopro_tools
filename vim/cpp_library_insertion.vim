@@ -1,3 +1,5 @@
+let s:prefix = $KYOPROHOME . "/cpp_library/"
+
 " [0]:.h [1]:declaration [2]:library
 function! CppFileParse(inputfile) abort
     let x = 1
@@ -19,13 +21,28 @@ function! CppFileParse(inputfile) abort
     return [head, decl, lib]
 endfunction
 
-function InsertCppLibraryf(inputfile) abort
+function InsertCppLibraryf(arg) abort
+    let retrow = line(".")
+    let retcol = col(".")
+    let insertfile = a:arg
+
+    if filereadable(insertfile) == 0 && filereadable(s:prefix . insertfile) == 1
+        let insertfile = s:prefix . insertfile
+    endif
+
+    if filereadable(insertfile) == 0
+        echo "file not found"
+        return
+    endif
+    
     execute ":w"
     let numl = CppFileParse(expand("%:p")) "parse current working file
     let linum = numl[2]
     let isInsertState = 0
 
-    for line in readfile(a:inputfile)
+    call append(linum, "")
+    let linum = linum + 1
+    for line in readfile(insertfile)
         if line == "//===" && isInsertState == 0
             let isInsertState = 1
         elseif line == "//===" && isInsertState == 1
@@ -37,16 +54,20 @@ function InsertCppLibraryf(inputfile) abort
             let linum = linum + 1
         endif
     endfor
+    call append(linum, "")
+
+    call cursor(retrow, retcol)
+
 endfunction
 
 function! CompCppLibrary(lead, line, pos)
-    let prefix = $KYOPROHOME . "/cpp_library/"
-    let keyw = prefix . a:lead . "*"
-    let wlist = split(glob(keyw), "\n")
+    let keyw = s:prefix . a:lead
+    let wlist = split(glob(keyw . "*"), "\n")
+
     let i = 0
 
     for s in wlist
-        let wlist[i] = substitute(s, prefix, "", "g")
+        let wlist[i] = substitute(s, s:prefix, "", "g")
         let i = i + 1
     endfor
 
