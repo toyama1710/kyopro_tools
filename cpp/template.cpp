@@ -1,4 +1,4 @@
-//=== header file include here
+// header file section
 #include <iostream>
 #include <cstdio>
 #include <cfloat>
@@ -8,18 +8,14 @@
 #include <map>
 #include <set>
 #include <bitset>
-//===
+
 using namespace std;
 using llong = long long;
 
-//=== insert declaration hera
+// declaration section
 
-//===
-
-//=== library insert here
-
-//===
+// library section
 
 int main() {
-	return 0;
+    return 0;
 };
