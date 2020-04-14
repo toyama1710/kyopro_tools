@@ -8,13 +8,15 @@
 #include <map>
 #include <set>
 #include <bitset>
+#include <functional>
+#include <numeric>
+#include <algorithm>
 
 using namespace std;
 using llong = long long;
 
-// declaration section
-
 // library section
+// ===
 
 int main() {
     return 0;
