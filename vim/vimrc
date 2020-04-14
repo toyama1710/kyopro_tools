@@ -13,7 +13,11 @@ set noswapfile
 set nobackup
 set noundofile
 
+set ignorecase
+
 set clipboard+=unnamedplus
+
+set scrolloff=5
 
 let &t_ti.="\e[6 q"
 let &t_SI.="\e[6 q"
