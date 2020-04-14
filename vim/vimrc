@@ -33,5 +33,3 @@ nnoremap j gj
 xnoremap j gj
 nnoremap k gk
 xnoremap k gk
-nnoremap li :InsertCppLibrary
-xnoremap li :InsertCppLibrary
