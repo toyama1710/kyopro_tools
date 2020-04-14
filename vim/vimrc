@@ -26,10 +26,12 @@ let &t_te.="\e[6 q"
 
 autocmd BufNewFile *.cpp 0r $KYOPROHOME/kyopro_tools/cpp/template.cpp
 
+source $KYOPROHOME/kyopro_tools/vim/cpp_library_insertion.vim
+
 " keymapping
 nnoremap j gj
 xnoremap j gj
 nnoremap k gk
 xnoremap k gk
-
-source $KYOPROHOME/kyopro_tools/vim/cpp_library_insertion.vim
+nnoremap li :InsertCppLibrary
+xnoremap li :InsertCppLibrary
