@@ -5,7 +5,7 @@ using i64 = long long;
 #define _rep1(Itr, N) _rep3(Itr, 0, N, 1)
 #define _rep2(Itr, a, b) _rep3(Itr, a, b, 1)
 #define _rep3(Itr, a, b, step) for (i64 (Itr) = a; (Itr) < b; (Itr) += step)
-#define repeat(...) _overload(__VA_ARGS__, _rep3, _rep2, _rep1)(__VA_ARGS)
+#define repeat(...) _overload(__VA_ARGS__, _rep3, _rep2, _rep1)(__VA_ARGS__)
 
 using namespace std;
 using llong = long long;
